@@ -2,7 +2,7 @@ import json
 import tornado.web
 from tornado import gen
 
-from data.memory_store import MemoryStore
+from {{cookiecutter.model_name.lower()}}.data.memory_store import MemoryStore
 
 class BaseHandler(tornado.web.RequestHandler):
     def set_default_headers(self):
@@ -42,4 +42,5 @@ class {{cookiecutter.model_name}}Handler(BaseHandler):
     @gen.coroutine
     def post(self):
         self.application.store.create_{{cookiecutter.model_name.lower()}}(json.loads(self.request.body))
+        self.set_status(201)
         self.finish()

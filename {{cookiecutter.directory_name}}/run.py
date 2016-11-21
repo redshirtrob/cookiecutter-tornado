@@ -1,7 +1,7 @@
 import tornado.ioloop
 
-from server.server import TornadoApp
-from data.memory_store import MemoryStore
+from {{cookiecutter.model_name.lower()}}.server.server import TornadoApp
+from {{cookiecutter.model_name.lower()}}.data.memory_store import MemoryStore
 
 PORT=9000
 

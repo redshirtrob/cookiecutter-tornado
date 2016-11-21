@@ -15,3 +15,8 @@ $ pip install -r requirements
 $ python run.py # Listens on port 9000
 ```
 
+Run the tests:
+```bash
+$ python -m pytest tests/
+```
+
