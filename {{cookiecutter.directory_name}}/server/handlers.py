@@ -26,20 +26,20 @@ class BaseHandler(tornado.web.RequestHandler):
         self.finish()
 
 
-class ExampleHandler(BaseHandler):
+class {{cookiecutter.model_name}}Handler(BaseHandler):
 
     SUPPORTED_METHODS = ('GET', 'POST', 'OPTIONS')
 
     @gen.coroutine
-    def get(self, example_id=None):
-        if example_id is None:
-            result = yield self.application.store.get_examples()
+    def get(self, {{cookiecutter.model_name.lower()}}_id=None):
+        if {{cookiecutter.model_name.lower()}}_id is None:
+            result = yield self.application.store.get_{{cookiecutter.model_name.lower()}}s()
         else:
-            result = yield self.application.store.get_example_by_id(example_id)
+            result = yield self.application.store.get_{{cookiecutter.model_name.lower()}}_by_id({{cookiecutter.model_name.lower()}}_id)
         self.write(json.dumps(result))
         self.finish()
 
     @gen.coroutine
     def post(self):
-        self.application.store.create_example(json.loads(self.request.body))
+        self.application.store.create_{{cookiecutter.model_name.lower()}}(json.loads(self.request.body))
         self.finish()

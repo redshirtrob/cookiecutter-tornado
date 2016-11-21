@@ -4,9 +4,9 @@ from sqlalchemy import Column, Float, Integer, String
 
 from .core import Base
 
-class ExampleModel(Base):
-    """Example Model"""
-    __tablename__ = 'example'
+class {{cookiecutter.model_name}}Model(Base):
+    """{{cookiecutter.model_name}} Model"""
+    __tablename__ = '{{cookiecutter.model_name.lower()}}'
 
     id = Column(Integer, primary_key=True)
     key = Column(String)
@@ -16,9 +16,9 @@ class ExampleModel(Base):
         return cls(key=dct['key'])
 
     def to_dict(self):
-        dct = super(ExampleModel, self).to_dict()
+        dct = super({{cookiecutter.model_name}}Model, self).to_dict()
         dct['key'] = self.key
         return dct
     
     def __repr__(self):
-        return "<ExampleModel({} {})>".format(self.id, self.key)
+        return "<{{cookiecutter.model_name}}Model({} {})>".format(self.id, self.key)

@@ -1,17 +1,7 @@
-# Tornado Web App Template
+# A Tornado/SQLAlchemy HTTP Cookie Cutter
 
-A simple template to get started with Torndado Web Apps.
+Generate a simple Tornado REST server with a SQLAlchemy backend.
 
-It stubs out:
- * An async web server
- * Routes
- * GET/POST handlers
- * A SQLite memory store
-
-To try it out:
 ```bash
-$ mkvirtualenv tornado-template
-$ pip install -r requirements
-$ python run.py # Listens on port 9000
+$ cookiecutter https://github.com/redshirtrob/cookiecutter-tornado
 ```
-
